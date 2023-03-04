@@ -33,7 +33,7 @@ public class SearchController {
     public String displaySearchResults(Model model,@RequestParam String searchType,@RequestParam String searchTerm) {
 
         ArrayList<Job> jobs;
-        if (searchType.equalsIgnoreCase("all") || searchTerm.equalsIgnoreCase("")) {
+        if (searchType.equalsIgnoreCase("all") && searchTerm.equalsIgnoreCase("") || searchTerm.equalsIgnoreCase("all")) {
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
